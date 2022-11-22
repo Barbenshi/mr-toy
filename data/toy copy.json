@@ -1,0 +1,69 @@
+[
+    {
+        "_id": "t101",
+        "name": "Talking Doll",
+        "price": 123,
+        "labels": [
+            "Doll",
+            "Battery Powered",
+            "Baby"
+        ],
+        "createdAt": 1631031801011,
+        "inStock": true,
+        "reviews": [
+            {
+                "title": "Buy it",
+                "txt": "I really like this doll"
+            },
+            {
+                "title": "Nice doll",
+                "txt": "Speaks like a human"
+            }
+        ]
+    },
+    {
+        "_id": "t102",
+        "name": "Poopy Doll",
+        "price": 56,
+        "labels": [
+            "Doll",
+            "On wheels",
+            "Box game",
+            "Art"
+        ],
+        "createdAt": 1631031802121,
+        "inStock": false,
+        "reviews": [
+            {
+                "title": "Yes, ipsum.",
+                "txt": " Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque, aspernatur."
+            },
+            {
+                "title": "Bla bla",
+                "txt": "Speaks like a human"
+            }
+        ]
+    },
+    {
+        "_id": "t103",
+        "name": "Mama Doll",
+        "price": 555,
+        "labels": [
+            "Doll",
+            "Puzzle",
+            "Outdoor"
+        ],
+        "createdAt": 1631032132011,
+        "inStock": true,
+        "reviews": [
+            {
+                "title": "Meow",
+                "txt": "No meow for you"
+            },
+            {
+                "title": "Mommy",
+                "txt": "Do you like mamma?"
+            }
+        ]
+    }
+]
