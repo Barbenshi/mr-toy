@@ -22,13 +22,19 @@ app.use(cors(corsOptions))
 
 // LIST
 app.get('/api/toy', (req, res) => {
-  const { byVendor, page } = req.query
-
-  // const filterBy = {
-  //   byVendor: byVendor || '',
-  //   page: +page || 0,
-  // }
-   toyService.query().then((toys) => {
+  const { filterBy, sortBy } = req.query
+  const { labels, name, inStock } = filterBy
+  const filter = {
+    name: name || '',
+    labels: labels || [],
+    inStock: JSON.parse(inStock) || false,
+  }
+  const sort = {
+    name: JSON.parse(sortBy.name) || false,
+    price : JSON.parse(sortBy.price) || false,
+    createdAt: JSON.parse(sortBy.createdAt) || false
+  }
+  toyService.query({filter,sort}).then((toys) => {
     res.send(toys)
   })
 })

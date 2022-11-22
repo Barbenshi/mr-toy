@@ -8,17 +8,38 @@ module.exports = {
   save,
 }
 
-const itemsPerPage = 2
-function query(filterBy= {}) {
-  if(!Object.keys(filterBy).length) return Promise.resolve(gToys)
-  const { byVendor, page } = filterBy
-  console.log('page:', page)
+// const itemsPerPage = 2
+function query(filterAndSort = {}) {
+  const { filter: filterBy, sort: sortBy } = filterAndSort
+  // return gToys
+  if (!Object.keys(filterBy).length) return Promise.resolve(gToys)
+  const { name, inStock, labels } = filterBy
 
-  const regex = new RegExp(byVendor, 'i')
-  let filteredToys = gToys.filter((toy) => regex.test(toy.vendor))
-  const startIdx = page * itemsPerPage
-  const totalPages = Math.ceil(filteredToys.length / itemsPerPage)
-  filteredToys = filteredToys.slice(startIdx, startIdx + itemsPerPage)
+  // Filter
+  const regex = new RegExp(name, 'i')
+  let filteredToys = gToys.filter((toy) => regex.test(toy.name))
+  if (inStock) filteredToys = filteredToys.filter(toy => toy.inStock)
+  if (labels && labels.length) {
+    const isSubset = (array1, array2) => array2.every((element) => array1.includes(element));
+    filteredToys = filteredToys.filter(toy => {
+      return isSubset(toy.labels, labels)
+    })
+  }
+
+  // Sorting
+  for (let sorter in sortBy) {
+    if (sortBy[sorter]) {
+      console.log('sorting');
+      sorter === 'name'
+        ? filteredToys.sort((toy1, toy2) => toy1[sorter].localeCompare(toy2[sorter]))
+        : filteredToys.sort((toy1, toy2) => toy2[sorter] - toy1[sorter])
+    }
+  }
+  // Pagination
+  // console.log('page:', page)
+  // const startIdx = page * itemsPerPage
+  // const totalPages = Math.ceil(filteredToys.length / itemsPerPage)
+  // filteredToys = filteredToys.slice(startIdx, startIdx + itemsPerPage)
   return Promise.resolve(filteredToys)
 }
 

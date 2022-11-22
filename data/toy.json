@@ -1,15 +1,31 @@
 [
   {
-    "_id": "PORYv",
-    "name": "bababas",
-    "price": 3,
-    "createdAt": 1669054238522,
-    "labels": []
+    "name": "dsadasd",
+    "price": 4,
+    "createdAt": 1669132933615,
+    "inStock": false,
+    "labels": [],
+    "_id": "fwJnT"
+  },
+  {
+    "name": "bababa",
+    "price": 2,
+    "createdAt": 1669132225930,
+    "inStock": false,
+    "labels": [],
+    "_id": "PoSgW"
   },
   {
     "_id": "t101",
-    "name": "Talking Dolls",
+    "name": "Talking Doll",
     "price": 123,
+    "labels": [
+      "Doll",
+      "Battery Powered",
+      "Baby"
+    ],
+    "createdAt": 1631031801011,
+    "inStock": true,
     "reviews": [
       {
         "title": "Buy it",
@@ -19,12 +35,6 @@
         "title": "Nice doll",
         "txt": "Speaks like a human"
       }
-    ],
-    "createdAt": 1631031801011,
-    "labels": [
-      "Doll",
-      "Battery Powered",
-      "Baby"
     ]
   },
   {
